@@ -5,7 +5,17 @@
 <title>Untitled Document</title></head>
 
 <body>
-<div><h1>Your room Updated  successfully.</h1></div>
+<?php
+include('../include/db_con.php');
 
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+$sql="delete from roomdetail where id='".$id."'";
+mysql_query($sql) or die (mysql_error($con));
+
+header("location:adminpanal.php");
+}
+?>
 </body>
 </html>
